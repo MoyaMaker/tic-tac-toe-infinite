@@ -1,0 +1,139 @@
+:root {
+  --button-size: 6rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #f5f5f5;
+}
+
+.result {
+  padding: 2rem;
+
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 2.5rem;
+}
+
+button.reload {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background-color: blue;
+  color: white;
+
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.container {
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board {
+  width: calc(var(--button-size) * 3);
+  height: calc(var(--button-size) * 3);
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.board button {
+  width: var(--button-size);
+  height: var(--button-size);
+
+  border-width: 0;
+  border-color: blue;
+  border-style: solid;
+
+  background-color: transparent;
+
+  font-size: 2rem;
+
+  &.last-one {
+    animation: tingle 1s ease infinite;
+  }
+
+  &:disabled {
+    background-color: transparent;
+    color: light-dark(black, white);
+  }
+}
+
+.board button:nth-child(1) {
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+}
+.board button:nth-child(2) {
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+.board button:nth-child(3) {
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+.board button:nth-child(4) {
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+}
+.board button:nth-child(5) {
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+.board button:nth-child(6) {
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+.board button:nth-child(7) {
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+.board button:nth-child(8) {
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-left-width: 1px;
+}
+.board button:nth-child(9) {
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+
+@keyframes tingle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
